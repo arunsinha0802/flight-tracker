@@ -24,20 +24,24 @@ def get_flight_info(flight):
     details = fr.get_flight_details(flight)
 
     # Extract the fields we need with safe fallbacks
-    airline = details.get('airline', {}).get('name', 'Unknown airline')
-    aircraft = details.get('aircraft', {}).get('model', {}).get('text', flight.aircraft_code)
+    airline = details.get('airline') or {}
+    airline = airline.get('name', 'Unknown airline')
 
-    origin_city = (details.get('airport', {})
-                   .get('origin', {})
-                   .get('position', {})
-                   .get('region', {})
-                   .get('city', flight.origin_airport_iata))
+    aircraft = details.get('aircraft') or {}
+    aircraft = aircraft.get('model') or {}
+    aircraft = aircraft.get('text', flight.aircraft_code)
 
-    destination_city = (details.get('airport', {})
-                        .get('destination', {})
-                        .get('position', {})
-                        .get('region', {})
-                        .get('city', flight.destination_airport_iata))
+    airport = details.get('airport') or {}
+
+    origin = airport.get('origin') or {}
+    origin_position = origin.get('position') or {}
+    origin_region = origin_position.get('region') or {}
+    origin_city = origin_region.get('city', flight.origin_airport_iata)
+
+    destination = airport.get('destination') or {}
+    destination_position = destination.get('position') or {}
+    destination_region = destination_position.get('region') or {}
+    destination_city = destination_region.get('city', flight.destination_airport_iata)
 
     return {
         'callsign': flight.callsign,
