@@ -1,5 +1,7 @@
 flightradar24
 Pillow
 requests
-pyttsx3
 playsound==1.2.2
+edge-tts
+FlightRadarAPI
+beautifulsoup4
