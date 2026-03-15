@@ -36,7 +36,7 @@ while True:
             announcement = (
                 f"{info['airline']} flight {info['number']} "
                 f"from {info['origin']} to {info['destination']}, "
-                f"a {info['aircraft']}, is currently overhead"
+                f"a {info['aircraft']}"
             )
 
             print(f"[{current_time}] FLIGHT: {announcement}")

@@ -2,6 +2,7 @@ import asyncio
 import os
 import edge_tts
 import playsound
+import time 
 
 # Voice selection - en-GB-SoniaNeural is a natural British female voice
 # Alternative British male voice: en-GB-RyanNeural
@@ -13,14 +14,15 @@ async def _generate_speech(text, filename):
     await communicate.save(filename)
 
 def announce(text):
-    # Generate the audio file
+    # Play the bing bong chime first
+    playsound.playsound("assets/bingbong.wav")
+    time.sleep(0.2)
+    
+    # Then generate and play the announcement
     filename = "announcement.mp3"
     asyncio.run(_generate_speech(text, filename))
-    
-    # Play the audio file
     playsound.playsound(filename)
-    
-    # Delete the file after playing
+    time.sleep(0.5)
     os.remove(filename)
 
 
