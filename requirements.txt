@@ -1,0 +1,4 @@
+flightradar24
+Pillow
+requests
+pyttsx3
