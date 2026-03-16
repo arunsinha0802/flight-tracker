@@ -33,6 +33,11 @@ while True:
         if time_since > REANNOUNCE_AFTER_SECONDS:
             announced_flights[callsign] = now
 
+            if 'London' in info['origin_airport']:
+                origin_text = info['origin_airport']
+            else:
+                origin_text = info['origin']
+                
             if info['destination'] == 'London':
                 destination_text = info['destination_airport']
             else:

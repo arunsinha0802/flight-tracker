@@ -37,6 +37,7 @@ def get_flight_info(flight):
     origin_position = origin.get('position') or {}
     origin_region = origin_position.get('region') or {}
     origin_city = origin_region.get('city', flight.origin_airport_iata)
+    origin_airport = origin.get('name', origin_city)
 
     destination = airport.get('destination') or {}
     destination_position = destination.get('position') or {}
@@ -50,6 +51,7 @@ def get_flight_info(flight):
         'airline': airline,
         'aircraft': aircraft,
         'origin': origin_city,
+        'origin_airport': origin_airport,
         'destination': destination_city,
         'destination_airport': destination_airport,
         'altitude': flight.altitude,

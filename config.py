@@ -1,7 +1,7 @@
 # Location settings
 LOCATION_LAT = 51.54880905151367      # your latitude
 LOCATION_LON = -0.013320274651050568      # your longitude
-SEARCH_RADIUS_KM = 10       # how far around you to look for flights
+SEARCH_RADIUS_KM = 3      # how far around you to look for flights
 
 # Display settings
 #PANEL_WIDTH = 
