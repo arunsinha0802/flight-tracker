@@ -33,11 +33,16 @@ while True:
         if time_since > REANNOUNCE_AFTER_SECONDS:
             announced_flights[callsign] = now
 
+            if info['destination'] == 'London':
+                destination_text = info['destination_airport']
+            else:
+                destination_text = info['destination']
+
             announcement = (
-                f"{info['airline']} flight {info['number']} "
-                f"from {info['origin']} to {info['destination']}, "
+                f"{info['airline']} {info['number']} "
+                f"from {info['origin']} to {destination_text}, "
                 f"a {info['aircraft']}"
-            )
+)
 
             print(f"[{current_time}] FLIGHT: {announcement}")
             announce(announcement)

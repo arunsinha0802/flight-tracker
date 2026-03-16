@@ -16,7 +16,7 @@ async def _generate_speech(text, filename):
 def announce(text):
     # Play the bing bong chime first
     playsound.playsound("assets/bingbong.wav")
-    time.sleep(0.2)
+    time.sleep(0.1)
     
     # Then generate and play the announcement
     filename = "announcement.mp3"

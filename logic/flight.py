@@ -42,7 +42,8 @@ def get_flight_info(flight):
     destination_position = destination.get('position') or {}
     destination_region = destination_position.get('region') or {}
     destination_city = destination_region.get('city', flight.destination_airport_iata)
-
+    destination_airport = destination.get('name', destination_city)
+    
     return {
         'callsign': flight.callsign,
         'number': flight.number,
@@ -50,8 +51,9 @@ def get_flight_info(flight):
         'aircraft': aircraft,
         'origin': origin_city,
         'destination': destination_city,
+        'destination_airport': destination_airport,
         'altitude': flight.altitude,
-    }
+}
 
 
 # Only runs when executing this file directly
