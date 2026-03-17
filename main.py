@@ -2,7 +2,7 @@ import time
 from logic.flight import get_overhead_flights, get_flight_info
 from logic.temperature import get_temperature
 from logic.clock import get_time, get_date
-from logic.audio import announce
+from logic.audio import announce, greeting
 
 # Track announced flights with timestamps
 # Format: { callsign: timestamp_when_announced }
@@ -12,6 +12,7 @@ announced_flights = {}
 REANNOUNCE_AFTER_SECONDS = 1800
 
 print("Flight tracker starting...")
+greeting()
 
 while True:
     current_time = get_time()
