@@ -41,7 +41,7 @@ while True:
                 
             if info['destination'] == 'London':
                 destination_text = info['destination_airport']
-            else:
+            else:    
                 destination_text = info['destination']
 
             announcement = (
