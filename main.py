@@ -46,9 +46,10 @@ while True:
                 destination_text = info['destination']
 
             announcement = (
-                f"{info['airline']} {info['number']} "
-                f"from {info['origin']} to {destination_text}, "
-                f"a {info['aircraft']}"
+                f"{info['airline']}. "
+                f"{' '.join(info['number'].replace('-', ' '))}. "
+                f"From {origin_text}, to {destination_text}. "
+                f"Aircraft type, {info['aircraft']}."
 )
 
             print(f"[{current_time}] FLIGHT: {announcement}")
