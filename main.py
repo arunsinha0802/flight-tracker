@@ -58,8 +58,8 @@ while True:
                 f"{info['airline']}. "
                 f"{format_flight_number(info['number'])}. "
                 f"From {origin_text}, to {destination_text}. "
-                f"{info['aircraft']}."
-)
+                f"{format_flight_number(info['aircraft'])}."
+            )
 
             print(f"[{current_time}] FLIGHT: {announcement}")
             announce(announcement)
