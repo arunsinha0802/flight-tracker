@@ -3,6 +3,15 @@ from logic.flight import get_overhead_flights, get_flight_info
 from logic.temperature import get_temperature
 from logic.clock import get_time, get_date
 from logic.audio import announce, greeting
+import re
+
+
+def format_flight_number(number):
+    # Replace dash with " dash "
+    number = number.replace('-', ' dash ')
+    # Space out any sequence of digits
+    number = re.sub(r'(\d)', r'\1 ', number).strip()
+    return number
 
 # Track announced flights with timestamps
 # Format: { callsign: timestamp_when_announced }
@@ -47,7 +56,7 @@ while True:
 
             announcement = (
                 f"{info['airline']}. "
-                f"{' '.join(info['number'].replace('-', ' '))}. "
+                f"{format_flight_number(info['number'])}. "
                 f"From {origin_text}, to {destination_text}. "
                 f"Aircraft type, {info['aircraft']}."
 )
