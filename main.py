@@ -12,6 +12,7 @@ announced_flights = {}
 REANNOUNCE_AFTER_SECONDS = 1800
 
 print("Flight tracker starting...")
+
 greeting()
 
 while True:
